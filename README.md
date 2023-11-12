@@ -1,5 +1,6 @@
 # Cockpit Keyboard ZMK Configuration
 ## To build Firmware in GitHub Actions
+Test 1
 
 ### Setup
 
