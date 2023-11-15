@@ -33,11 +33,11 @@
 
 // BASE
 // ╭──────┬──────┬──────┬──────┬──────┬──────╮                   ╭──────┬──────┬──────┬──────┬──────┬──────╮
-// │  TAB │  Q   │  W   │  E   │  R   │  T   │                   │  Y   │  U   │  I   │  O   │   P  │ BSPC │
+// │  ESC │  Q   │  W   │  E   │  R   │  T   │                   │  Y   │  U   │  I   │  O   │   P  │ BSPC │
 // ├──────┼──────┼──────┼──────┼──────┼──────┤                   ├──────┼──────┼──────┼──────┼──────┼──────┤
-// │ CTRL │  A   │  S   │  D   │  F   │  G   │                   │  H   │  J   │  K   │  L   │   ;  │   '  │
+// │  TAB │  A   │  S   │  D   │  F   │  G   │                   │  H   │  J   │  K   │  L   │   ;  │   '  │
 // ├──────┼──────┼──────┼──────┼──────┼──────┤                   ├──────┼──────┼──────┼──────┼──────┼──────┤
-// │ LSFT │  Z   │  X   │    C │  V   │  B   │                   │  N   │  M   │  ,   │    . │  /   │RS-ENT│
+// │ LSFT │LCTRL │  X   │  C   │  V   │  B   │                   │  N   │  M   │  ,   │    . │  /   │RS-ENT│
 // ╰──────┴──────┴──────┴──────┴──────┴──────┼─────────┬─────────┼──────┴──────┴──────┴──────┴──────┴──────╯
 //                                           │   MPLY  │  MUTE   │
 //                     ╭──────┬──────┬───────┼─────────┴─────────┼──────┬──────┬──────╮
@@ -51,16 +51,16 @@
 
 
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T             &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G             &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B             &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT RET
+   &kp ESC      &kp Q           &kp W   &kp E   &kp R   &kp T             &kp Y &kp U  &kp I    &kp O           &kp P           &kp BSPC
+   &kp TAB      &kp A           &kp S   &kp D   &kp F   &kp G             &kp H &kp J  &kp K    &kp L           &kp SEMI        &kp SQT
+   &kp LSHFT    &kp LCTRL       &kp Z   &kp X   &kp C   &kp V             &kp B &kp N  &kp M    &kp COMMA       &kp DOT         &kp FSLH
                                      &kp C_PLAY_PAUSE  &kp C_MUTE
-                    &kp LALT  &mo 1 &kp SPACE              &kp SPACE &mo 2  &kp RALT
+                    &kp LCMD  &mo 1 &kp SPACE              &kp RET &mo 2  &kp RALT
                                                &kp UP_ARROW
                                &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
                                                  
                         >;
-                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+                        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
                 };
 
                 lower_layer {
@@ -84,9 +84,9 @@
 
 
                         bindings = <
-   &trans &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT           &kp CARET &kp AMPS &kp N8    &kp LPAR  &kp RPAR  &kp DEL
-   &trans &kp MINUS &kp KP_PLUS &kp LBRC &kp RBRC &kp PIPE            &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp GRAVE &kp TILDE
-   &trans &kp ESC   &kp LGUI    &kp LALT &kp CLCK &kp DQT             &kp HOME  &kp END  &kp PG_UP &kp PG_DN &kp PSCRN &mt RSHFT RET
+   &trans &kp N1        &kp N2          &kp N3          &kp N4          &kp N5              &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
+   &trans &kp MINUS     &kp KP_PLUS     &kp LBRC        &kp RBRC        &kp PIPE            &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp N9 &kp N0
+   &trans &kp C_PREV    &kp C_NEXT      &kp C_VOL_DN    &kp C_VOL_UP    &kp K_PP            &kp HOME  &kp END  &kp PG_UP &kp PG_DN &kp PSCRN &kp RSHFT
                                                 &kp C_PLAY_PAUSE  &kp C_MUTE
                            &trans  &trans &kp SPACE              &kp SPACE &mo 3  &trans
                                                       &kp UP_ARROW
@@ -112,11 +112,10 @@
 //                                          │ LEFT │ DOWN │ RIGHT│
 //                                          ╰──────┴──────┴──────╯
 
-
                         bindings = <
-   &trans &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6
-   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp DQT       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
+   &trans &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT     &kp CARET &kp AMPS &kp ASTRK    &kp LPAR  &kp RPAR  &kp DEL
+   &trans &kp RC(LA(LEFT)) &kp RC(LA(U)) &kp RC(LA(I))  &kp RC(LA(RIGHT))  &kp BSLH      &kp MINUS    &kp EQUAL    &kp LBRC    &kp RBRC    &kp BSLH    &kp GRAVE
+   &trans &kp RC(LA(ENT))   &kp RC(LA(J))  &kp RC(LA(K))  &kp RC(LA(ENT))  &kp DQT       &kp UNDER    &kp PLUS    &kp LBKT    &kp RBKT   &kp PIPE   &kp TILDE
                                             &kp C_PLAY_PAUSE  &kp C_MUTE
                            &trans  &mo 3 &kp SPACE              &kp SPACE  &trans   &trans
                                                       &kp UP_ARROW
